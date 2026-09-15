@@ -10,6 +10,41 @@ A front-end prototype for an AI-enhanced, adaptable tutoring platform for higher
 - Build blueprint view covering repository structure, data entities, modular interfaces, and staged MVP rollout
 - Schedule-agnostic product framing for M/W, M/W/F, T/Th, and custom course calendars
 
+## Project map
+
+The root files are the current clickable prototype. The folders below show where the real app pieces should be built next.
+
+```text
+/
+  index.html
+  styles.css
+  script.js
+  README.md
+  backend/
+    api/
+    ai/
+    analytics/
+    assessments/
+    config/
+    courses/
+    database/
+    knowledge/
+    mastery/
+    scheduling/
+    students/
+    tutor/
+    tests/
+  frontend/
+    app/
+    components/
+    lib/
+    pages/
+    styles/
+  docs/
+```
+
+Start with `docs/build-order.md` for the plain-English sequence of what to build first.
+
 ## Run locally
 
 Open `index.html` in a browser.
