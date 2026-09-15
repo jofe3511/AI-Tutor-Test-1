@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Enhanced Adaptable Tutor</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Primary">
+        <div class="brand">
+          <div class="brand-mark">AT</div>
+          <div>
+            <p>AI Enhanced</p>
+            <strong>Adaptable Tutor</strong>
+          </div>
+        </div>
+        <nav>
+          <button class="nav-item active" data-view="student">Student Studio</button>
+          <button class="nav-item" data-view="instructor">Instructor Console</button>
+          <button class="nav-item" data-view="architecture">Platform Blueprint</button>
+        </nav>
+        <div class="course-card">
+          <span>Active Course</span>
+          <strong>Bio 221: Cellular Systems</strong>
+          <p>Mon / Wed template, 14-week semester</p>
+        </div>
+      </aside>
+
+      <main>
+        <section class="topbar">
+          <div>
+            <p class="eyebrow">Higher Education Tutor Platform</p>
+            <h1 id="view-title">Student Studio</h1>
+          </div>
+          <div class="status-strip" aria-label="Platform status">
+            <span>RAG synced</span>
+            <span>3 approvals pending</span>
+            <span>Next assessment: Wed</span>
+          </div>
+        </section>
+
+        <section id="student" class="view active">
+          <div class="dashboard-grid student-grid">
+            <section class="panel focus-panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Pre-Lecture Block</p>
+                  <h2>Membrane Transport</h2>
+                </div>
+                <span class="pill">Due Tue 9 PM</span>
+              </div>
+              <p class="lead">
+                Study adaptive lessons, complete practice, and submit questions before the live lecture.
+              </p>
+              <div class="learning-path">
+                <button class="path-step complete">
+                  <span>1</span>
+                  Read AI lesson
+                </button>
+                <button class="path-step active">
+                  <span>2</span>
+                  Practice set
+                </button>
+                <button class="path-step">
+                  <span>3</span>
+                  Submit questions
+                </button>
+                <button class="path-step">
+                  <span>4</span>
+                  Wed quiz
+                </button>
+              </div>
+              <div class="practice-card">
+                <div>
+                  <p class="eyebrow">Recommended Next</p>
+                  <h3>Multiple-select check</h3>
+                  <p>Select every mechanism that can move molecules against a concentration gradient.</p>
+                </div>
+                <button class="primary-action" id="grade-demo">Grade Demo Answer</button>
+              </div>
+              <div id="feedback" class="feedback" aria-live="polite">
+                Immediate feedback will appear after each practice attempt.
+              </div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-header">
+                <h2>Mastery</h2>
+                <span class="pill good">72%</span>
+              </div>
+              <div class="mastery-list" id="mastery-list"></div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-header">
+                <h2>History</h2>
+                <span class="pill">12 attempts</span>
+              </div>
+              <div class="timeline">
+                <div><strong>Practice</strong><span>Osmosis basics: 86%</span></div>
+                <div><strong>Exam</strong><span>Diffusion block: 4 / 5</span></div>
+                <div><strong>Tutor</strong><span>Asked 2 follow-up questions</span></div>
+              </div>
+            </section>
+
+            <section class="panel tutor-panel">
+              <div class="panel-header">
+                <h2>Live AI Tutor</h2>
+                <span class="pill">Course-aligned</span>
+              </div>
+              <div class="chat">
+                <p class="ai">I can explain active transport using your professor's ATPase notes and a broader cell biology example.</p>
+                <p class="student">Show me why sodium-potassium pumps matter.</p>
+              </div>
+              <div class="chat-input">
+                <input value="Ask for a hint, example, or misconception check" aria-label="Tutor prompt" />
+                <button>Send</button>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section id="instructor" class="view">
+          <div class="dashboard-grid instructor-grid">
+            <section class="panel focus-panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Instructor Review</p>
+                  <h2>Wednesday Assessment Preview</h2>
+                </div>
+                <span class="pill warning">Needs approval</span>
+              </div>
+              <div class="question-stack" id="question-stack"></div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-header">
+                <h2>Class Mastery</h2>
+                <span class="pill">Avg 68%</span>
+              </div>
+              <div class="metric-row">
+                <strong>High confidence</strong><span>31 students</span>
+              </div>
+              <div class="metric-row">
+                <strong>Needs lecture focus</strong><span>18 students</span>
+              </div>
+              <div class="metric-row">
+                <strong>At risk</strong><span>7 students</span>
+              </div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-header">
+                <h2>Student Questions</h2>
+                <span class="pill">24 new</span>
+              </div>
+              <div class="question-cluster">
+                <strong>Common theme</strong>
+                <p>Students confuse facilitated diffusion with ATP-dependent transport.</p>
+              </div>
+              <div class="question-cluster">
+                <strong>Suggested lecture adjustment</strong>
+                <p>Add a comparison table and one membrane pump case study.</p>
+              </div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-header">
+                <h2>Model Steering</h2>
+                <span class="pill good">Active</span>
+              </div>
+              <label class="field">
+                Tutor direction
+                <textarea>Prefer mechanistic explanations. Keep examples aligned with Campbell Biology chapter 7 and lab 3 membrane observations.</textarea>
+              </label>
+              <button class="secondary-action">Save Steering Note</button>
+            </section>
+          </div>
+        </section>
+
+        <section id="architecture" class="view">
+          <div class="blueprint">
+            <section class="panel">
+              <p class="eyebrow">Architecture</p>
+              <h2>AI Stack & Data Flow</h2>
+              <div class="architecture-flow">
+                <div>Course Material</div>
+                <div>RAG Index</div>
+                <div>Foundation LLM</div>
+                <div>Review Queue</div>
+                <div>Student Delivery</div>
+                <div>Attempts & Feedback</div>
+                <div>Mastery Engine</div>
+                <div>Instructor Analytics</div>
+              </div>
+            </section>
+            <section class="panel">
+              <p class="eyebrow">Core Entities</p>
+              <div class="entity-grid">
+                <span>Course</span><span>Subject</span><span>ContentBlock</span><span>Material</span>
+                <span>Question</span><span>Attempt</span><span>Exam</span><span>MasteryScore</span>
+                <span>ScheduleTemplate</span><span>Approval</span><span>FeedbackSignal</span><span>SteeringNote</span>
+              </div>
+            </section>
+            <section class="panel">
+              <p class="eyebrow">Phased Roadmap</p>
+              <div class="roadmap">
+                <div><strong>MVP</strong><p>Content upload, practice generation, feedback, mastery tracking, instructor review.</p></div>
+                <div><strong>Phase 2</strong><p>Exam editing, schedule templates, richer analytics, TA workflows.</p></div>
+                <div><strong>Phase 3</strong><p>Evaluation pipelines, adaptive release rules, advanced human-in-the-loop refinement.</p></div>
+              </div>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
