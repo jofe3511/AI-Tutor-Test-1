@@ -1,40 +1,94 @@
 const mastery = [
-  ["Membrane Transport", 78],
-  ["Osmosis", 84],
-  ["Ion Channels", 64],
-  ["ATPase Pumps", 52],
+  ["Glycolysis", 82, "Strong"],
+  ["Krebs Cycle", 61, "Developing"],
+  ["Electron Transport", 43, "Needs practice"],
+  ["ATP Production", 52, "Needs support"],
+  ["Membrane Gradients", 73, "Ready"],
 ];
 
 const questions = [
   {
     type: "Multiple select",
-    prompt: "Which mechanisms can move molecules against a concentration gradient?",
-    status: "High priority review",
+    difficulty: "0.58",
+    bloom: "Application",
+    objective: "Explain how NADH supports ATP production",
+    source: "Lecture 8, slide 24",
+    status: "Needs professor approval",
   },
   {
     type: "Matching",
-    prompt: "Match each transport type to its energy source and membrane protein.",
+    difficulty: "0.50",
+    bloom: "Understand",
+    objective: "Connect transport-chain proteins to electron movement",
+    source: "Chapter 6 notes",
     status: "Ready",
   },
   {
     type: "Short answer",
-    prompt: "Explain why a sodium-potassium pump helps maintain resting membrane potential.",
-    status: "Needs rubric check",
+    difficulty: "0.64",
+    bloom: "Analyze",
+    objective: "Distinguish proton pumping from ATP synthesis",
+    source: "Lab 3 + Lecture 8",
+    status: "Rubric review",
   },
   {
     type: "Process ordering",
-    prompt: "Order the ATPase cycle steps from ion binding through pump reset.",
+    difficulty: "0.45",
+    bloom: "Apply",
+    objective: "Order ETC events from NADH donation to ATP synthase",
+    source: "Lecture diagram",
     status: "Ready",
   },
   {
     type: "Multiple choice",
-    prompt: "Which observation best distinguishes diffusion from facilitated diffusion?",
+    difficulty: "0.36",
+    bloom: "Remember",
+    objective: "Identify the role of oxygen in electron transport",
+    source: "Professor summary",
     status: "Ready",
   },
 ];
 
+const interfaces = [
+  ["AIModelProvider", "generate_explanation, generate_question, evaluate_answer"],
+  ["KnowledgeRetriever", "search course chunks, return citations, rank authority tiers"],
+  ["MasteryStrategy", "compute mastery and confidence from attempts"],
+  ["DifficultyPolicy", "raise, lower, or hold difficulty from performance"],
+  ["TeachingStrategy", "socratic, worked example, hints, analogy, misconception correction"],
+  ["ScheduleEngine", "M/W, M/W/F, T/Th, and custom calendars from config"],
+  ["QuestionGenerator", "weighted question mix with objective and Bloom metadata"],
+  ["DocumentParser", "PDF, PPTX, DOCX, TXT, Markdown extraction"],
+];
+
+const entities = [
+  "User",
+  "Course",
+  "Enrollment",
+  "Module",
+  "Topic",
+  "Concept",
+  "LearningObjective",
+  "Document",
+  "DocumentChunk",
+  "Question",
+  "QuestionVersion",
+  "QuestionAttempt",
+  "Assessment",
+  "AssessmentAttempt",
+  "MasteryState",
+  "TutorSession",
+  "StudentQuestion",
+  "InstructorFeedback",
+  "AIConfiguration",
+  "AIOutput",
+  "EvaluationResult",
+  "CourseSession",
+];
+
 const masteryList = document.querySelector("#mastery-list");
 const questionStack = document.querySelector("#question-stack");
+const interfaceGrid = document.querySelector("#interface-grid");
+const entityGrid = document.querySelector("#entity-grid");
 const navItems = document.querySelectorAll(".nav-item");
 const views = document.querySelectorAll(".view");
 const title = document.querySelector("#view-title");
@@ -42,9 +96,12 @@ const feedback = document.querySelector("#feedback");
 
 masteryList.innerHTML = mastery
   .map(
-    ([label, score]) => `
+    ([label, score, state]) => `
       <div class="mastery-item">
-        <div class="mastery-label"><strong>${label}</strong><span>${score}%</span></div>
+        <div class="mastery-label">
+          <strong>${label}</strong>
+          <span>${score}% - ${state}</span>
+        </div>
         <div class="bar" aria-label="${label} mastery"><span style="width: ${score}%"></span></div>
       </div>
     `,
@@ -62,12 +119,30 @@ questionStack.innerHTML = questions
           </div>
           <span class="pill">${question.status}</span>
         </div>
-        <p>${question.prompt}</p>
-        <button class="secondary-action">Edit Question</button>
+        <p><strong>${question.objective}</strong></p>
+        <dl class="question-meta">
+          <div><dt>Difficulty</dt><dd>${question.difficulty}</dd></div>
+          <div><dt>Bloom</dt><dd>${question.bloom}</dd></div>
+          <div><dt>Source</dt><dd>${question.source}</dd></div>
+        </dl>
+        <button class="secondary-action">Edit Before Release</button>
       </article>
     `,
   )
   .join("");
+
+interfaceGrid.innerHTML = interfaces
+  .map(
+    ([name, detail]) => `
+      <div>
+        <strong>${name}</strong>
+        <span>${detail}</span>
+      </div>
+    `,
+  )
+  .join("");
+
+entityGrid.innerHTML = entities.map((entity) => `<span>${entity}</span>`).join("");
 
 navItems.forEach((item) => {
   item.addEventListener("click", () => {
@@ -79,6 +154,8 @@ navItems.forEach((item) => {
 });
 
 document.querySelector("#grade-demo").addEventListener("click", () => {
-  feedback.innerHTML =
-    "<strong>Score: 2 / 3.</strong> Correct: primary active transport and secondary active transport. Review: facilitated diffusion uses proteins but does not move solutes against the gradient without coupled energy.";
+  feedback.innerHTML = `
+    <strong>Decision complete.</strong>
+    Retrieved Tier 1 lecture chunks, selected hint progression, generated a short-answer prompt at difficulty 0.46, logged the attempt, and updated Electron Transport mastery from 43% to 47% with low confidence.
+  `;
 });
