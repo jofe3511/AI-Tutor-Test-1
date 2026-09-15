@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="app-shell">
-      <aside class="sidebar" aria-label="Primary">
+      <aside class="sidebar" aria-label="Primary navigation">
         <div class="brand">
           <div class="brand-mark">AT</div>
           <div>
@@ -16,28 +16,31 @@
             <strong>Adaptable Tutor</strong>
           </div>
         </div>
+
         <nav>
-          <button class="nav-item active" data-view="student">Student Studio</button>
+          <button class="nav-item active" data-view="student">Student Tutor</button>
           <button class="nav-item" data-view="instructor">Instructor Console</button>
-          <button class="nav-item" data-view="architecture">Platform Blueprint</button>
+          <button class="nav-item" data-view="engine">Tutor Engine</button>
+          <button class="nav-item" data-view="blueprint">Build Blueprint</button>
         </nav>
+
         <div class="course-card">
-          <span>Active Course</span>
-          <strong>Bio 221: Cellular Systems</strong>
-          <p>Mon / Wed template, 14-week semester</p>
+          <span>Configured Course</span>
+          <strong>BIO 301: Cell Systems</strong>
+          <p>Model adapter: OpenAI-compatible. Mastery strategy: simple weighted MVP.</p>
         </div>
       </aside>
 
       <main>
         <section class="topbar">
           <div>
-            <p class="eyebrow">Higher Education Tutor Platform</p>
-            <h1 id="view-title">Student Studio</h1>
+            <p class="eyebrow">Modular Monolith MVP</p>
+            <h1 id="view-title">Student Tutor</h1>
           </div>
-          <div class="status-strip" aria-label="Platform status">
-            <span>RAG synced</span>
-            <span>3 approvals pending</span>
-            <span>Next assessment: Wed</span>
+          <div class="status-strip" aria-label="System status">
+            <span>PostgreSQL source of truth</span>
+            <span>Vector search ready</span>
+            <span>Instructor review required</span>
           </div>
         </section>
 
@@ -46,77 +49,75 @@
             <section class="panel focus-panel">
               <div class="panel-header">
                 <div>
-                  <p class="eyebrow">Pre-Lecture Block</p>
-                  <h2>Membrane Transport</h2>
+                  <p class="eyebrow">Adaptive Next Step</p>
+                  <h2>Electron Transport Chain</h2>
                 </div>
-                <span class="pill">Due Tue 9 PM</span>
+                <span class="pill warning">Confidence 54%</span>
               </div>
               <p class="lead">
-                Study adaptive lessons, complete practice, and submit questions before the live lecture.
+                The tutor engine selected a hint-based worked example because the student is strong on glycolysis but weak on oxidative phosphorylation.
               </p>
-              <div class="learning-path">
-                <button class="path-step complete">
-                  <span>1</span>
-                  Read AI lesson
-                </button>
-                <button class="path-step active">
-                  <span>2</span>
-                  Practice set
-                </button>
-                <button class="path-step">
-                  <span>3</span>
-                  Submit questions
-                </button>
-                <button class="path-step">
-                  <span>4</span>
-                  Wed quiz
-                </button>
+
+              <div class="decision-card">
+                <div>
+                  <span class="tiny-label">Student Model</span>
+                  <strong>ETC mastery 43%</strong>
+                  <p>Recent misses show confusion between NADH donation and ATP synthase activity.</p>
+                </div>
+                <div>
+                  <span class="tiny-label">Teaching Strategy</span>
+                  <strong>Hint progression</strong>
+                  <p>Start with course-grounded hints before revealing a direct explanation.</p>
+                </div>
+                <div>
+                  <span class="tiny-label">Difficulty</span>
+                  <strong>0.46 / Application</strong>
+                  <p>Difficulty steps down after two misses, then reassesses with a short answer.</p>
+                </div>
               </div>
+
               <div class="practice-card">
                 <div>
-                  <p class="eyebrow">Recommended Next</p>
-                  <h3>Multiple-select check</h3>
-                  <p>Select every mechanism that can move molecules against a concentration gradient.</p>
+                  <p class="eyebrow">Grounded Tutor Prompt</p>
+                  <h3>Why does NADH contribute to ATP production?</h3>
+                  <p>Uses Lecture 8, slide 24 first; adds foundation-model context only as background.</p>
                 </div>
-                <button class="primary-action" id="grade-demo">Grade Demo Answer</button>
+                <button class="primary-action" id="grade-demo">Run Tutor Decision</button>
               </div>
               <div id="feedback" class="feedback" aria-live="polite">
-                Immediate feedback will appear after each practice attempt.
+                Tutor decisions will show retrieval, strategy, generated activity, grading, and mastery update.
               </div>
             </section>
 
             <section class="panel">
               <div class="panel-header">
-                <h2>Mastery</h2>
-                <span class="pill good">72%</span>
+                <h2>Concept Mastery</h2>
+                <span class="pill good">Course 68%</span>
               </div>
               <div class="mastery-list" id="mastery-list"></div>
             </section>
 
             <section class="panel">
               <div class="panel-header">
-                <h2>History</h2>
-                <span class="pill">12 attempts</span>
+                <h2>Student Environments</h2>
+                <span class="pill">3 modes</span>
               </div>
               <div class="timeline">
-                <div><strong>Practice</strong><span>Osmosis basics: 86%</span></div>
-                <div><strong>Exam</strong><span>Diffusion block: 4 / 5</span></div>
-                <div><strong>Tutor</strong><span>Asked 2 follow-up questions</span></div>
+                <div><strong>Learning</strong><span>Course-grounded explanations with citations.</span></div>
+                <div><strong>Practice</strong><span>Adaptive questions, hints, grading, and immediate feedback.</span></div>
+                <div><strong>Assessment</strong><span>Professor-scheduled quizzes with release controls.</span></div>
               </div>
             </section>
 
-            <section class="panel tutor-panel">
+            <section class="panel">
               <div class="panel-header">
-                <h2>Live AI Tutor</h2>
-                <span class="pill">Course-aligned</span>
+                <h2>Source Authority</h2>
+                <span class="pill">Tiered</span>
               </div>
-              <div class="chat">
-                <p class="ai">I can explain active transport using your professor's ATPase notes and a broader cell biology example.</p>
-                <p class="student">Show me why sodium-potassium pumps matter.</p>
-              </div>
-              <div class="chat-input">
-                <input value="Ask for a hint, example, or misconception check" aria-label="Tutor prompt" />
-                <button>Send</button>
+              <div class="source-stack">
+                <div><strong>Tier 1</strong><span>Professor-approved course material</span></div>
+                <div><strong>Tier 2</strong><span>Approved supplemental sources</span></div>
+                <div><strong>Tier 3</strong><span>General foundation-model knowledge</span></div>
               </div>
             </section>
           </div>
@@ -127,95 +128,137 @@
             <section class="panel focus-panel">
               <div class="panel-header">
                 <div>
-                  <p class="eyebrow">Instructor Review</p>
-                  <h2>Wednesday Assessment Preview</h2>
+                  <p class="eyebrow">Human Oversight</p>
+                  <h2>Generated Assessment Review</h2>
                 </div>
-                <span class="pill warning">Needs approval</span>
+                <span class="pill warning">High-stakes approval</span>
               </div>
               <div class="question-stack" id="question-stack"></div>
             </section>
 
             <section class="panel">
               <div class="panel-header">
-                <h2>Class Mastery</h2>
-                <span class="pill">Avg 68%</span>
+                <h2>Course Setup</h2>
+                <span class="pill">Config driven</span>
               </div>
-              <div class="metric-row">
-                <strong>High confidence</strong><span>31 students</span>
-              </div>
-              <div class="metric-row">
-                <strong>Needs lecture focus</strong><span>18 students</span>
-              </div>
-              <div class="metric-row">
-                <strong>At risk</strong><span>7 students</span>
+              <div class="timeline">
+                <div><strong>Hierarchy</strong><span>Course -> module -> topic -> concept -> objective.</span></div>
+                <div><strong>Materials</strong><span>PDF, PPTX, DOCX, TXT, Markdown, lecture notes.</span></div>
+                <div><strong>Schedule</strong><span>M/W, M/W/F, T/Th, or custom sessions.</span></div>
               </div>
             </section>
 
             <section class="panel">
               <div class="panel-header">
-                <h2>Student Questions</h2>
-                <span class="pill">24 new</span>
+                <h2>Class Signals</h2>
+                <span class="pill">Live analytics</span>
               </div>
-              <div class="question-cluster">
-                <strong>Common theme</strong>
-                <p>Students confuse facilitated diffusion with ATP-dependent transport.</p>
-              </div>
-              <div class="question-cluster">
-                <strong>Suggested lecture adjustment</strong>
-                <p>Add a comparison table and one membrane pump case study.</p>
-              </div>
+              <div class="metric-row"><strong>Common misconception</strong><span>NADH vs ATP synthase</span></div>
+              <div class="metric-row"><strong>Needs lecture focus</strong><span>18 students</span></div>
+              <div class="metric-row"><strong>Assessment readiness</strong><span>Medium difficulty</span></div>
             </section>
 
             <section class="panel">
               <div class="panel-header">
-                <h2>Model Steering</h2>
-                <span class="pill good">Active</span>
+                <h2>AI Steering</h2>
+                <span class="pill good">Auditable</span>
               </div>
               <label class="field">
-                Tutor direction
-                <textarea>Prefer mechanistic explanations. Keep examples aligned with Campbell Biology chapter 7 and lab 3 membrane observations.</textarea>
+                Course configuration
+                <textarea>{
+  "citation_required": true,
+  "max_hint_level": 3,
+  "preferred_strategies": ["socratic", "worked_example", "practice"],
+  "assessment_question_count": 5
+}</textarea>
               </label>
-              <button class="secondary-action">Save Steering Note</button>
+              <button class="secondary-action">Save Configuration</button>
             </section>
           </div>
         </section>
 
-        <section id="architecture" class="view">
+        <section id="engine" class="view">
           <div class="blueprint">
             <section class="panel">
-              <p class="eyebrow">Architecture</p>
-              <h2>AI Stack & Data Flow</h2>
-              <div class="architecture-flow">
-                <div>Course Material</div>
-                <div>RAG Index</div>
-                <div>Foundation LLM</div>
-                <div>Review Queue</div>
-                <div>Student Delivery</div>
-                <div>Attempts & Feedback</div>
-                <div>Mastery Engine</div>
-                <div>Instructor Analytics</div>
+              <p class="eyebrow">Core Principle</p>
+              <h2>The LLM is a component, not the tutor</h2>
+              <div class="layer-flow">
+                <div>Student Request</div>
+                <div>Tutor API</div>
+                <div>Tutor Orchestrator</div>
+                <div>Student Model</div>
+                <div>Knowledge Retrieval</div>
+                <div>Teaching Strategy</div>
+                <div>Model Adapter</div>
+                <div>Response + Mastery Update</div>
               </div>
             </section>
+
             <section class="panel">
-              <p class="eyebrow">Core Entities</p>
-              <div class="entity-grid">
-                <span>Course</span><span>Subject</span><span>ContentBlock</span><span>Material</span>
-                <span>Question</span><span>Attempt</span><span>Exam</span><span>MasteryScore</span>
-                <span>ScheduleTemplate</span><span>Approval</span><span>FeedbackSignal</span><span>SteeringNote</span>
+              <div class="panel-header">
+                <h2>Replaceable Interfaces</h2>
+                <span class="pill">No hard coupling</span>
+              </div>
+              <div class="interface-grid" id="interface-grid"></div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-header">
+                <h2>One Interaction Data Flow</h2>
+                <span class="pill">Logged</span>
+              </div>
+              <div class="sequence">
+                <div><span>1</span> Load mastery, attempts, course config, and active content block.</div>
+                <div><span>2</span> Retrieve approved document chunks and source citations.</div>
+                <div><span>3</span> Select learning objective, strategy, question type, and difficulty.</div>
+                <div><span>4</span> Ask model adapter to generate or evaluate language.</div>
+                <div><span>5</span> Store attempt, feedback, AI output, and evaluation result.</div>
+                <div><span>6</span> Recompute mastery through the configured mastery strategy.</div>
               </div>
             </section>
+          </div>
+        </section>
+
+        <section id="blueprint" class="view">
+          <div class="blueprint">
             <section class="panel">
-              <p class="eyebrow">Phased Roadmap</p>
+              <p class="eyebrow">Recommended Repository</p>
+              <h2>Framework-first app structure</h2>
+              <div class="repo-grid">
+                <div><strong>/backend/api</strong><span>FastAPI routers for tutor, courses, assessments, scheduling.</span></div>
+                <div><strong>/backend/tutor</strong><span>Orchestrator, strategies, evaluator, difficulty engine.</span></div>
+                <div><strong>/backend/knowledge</strong><span>Ingestion, chunking, embeddings, retrieval, citations.</span></div>
+                <div><strong>/backend/ai</strong><span>Provider-independent model adapter and prompt contracts.</span></div>
+                <div><strong>/backend/mastery</strong><span>Replaceable mastery algorithms and confidence estimates.</span></div>
+                <div><strong>/frontend</strong><span>Student app, instructor console, review workflows.</span></div>
+              </div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-header">
+                <h2>Data Model</h2>
+                <span class="pill">PostgreSQL + vector store</span>
+              </div>
+              <div class="entity-grid" id="entity-grid"></div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-header">
+                <h2>MVP Roadmap</h2>
+                <span class="pill good">Build in stages</span>
+              </div>
               <div class="roadmap">
-                <div><strong>MVP</strong><p>Content upload, practice generation, feedback, mastery tracking, instructor review.</p></div>
-                <div><strong>Phase 2</strong><p>Exam editing, schedule templates, richer analytics, TA workflows.</p></div>
-                <div><strong>Phase 3</strong><p>Evaluation pipelines, adaptive release rules, advanced human-in-the-loop refinement.</p></div>
+                <div><strong>1. Foundation</strong><p>Repo structure, database models, interfaces, configuration, tests.</p></div>
+                <div><strong>2. Knowledge Layer</strong><p>Document upload, extraction, chunking, embeddings, semantic search, citations.</p></div>
+                <div><strong>3. Student Model</strong><p>Concept mastery, attempts, confidence, dashboard, replaceable strategy.</p></div>
+                <div><strong>4. Tutor + Assessment</strong><p>Adaptive practice, grading, immediate feedback, professor review queue.</p></div>
               </div>
             </section>
           </div>
         </section>
       </main>
     </div>
+
     <script src="./script.js"></script>
   </body>
 </html>
