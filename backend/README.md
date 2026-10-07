@@ -48,3 +48,18 @@ Then open:
 http://127.0.0.1:8000/api/v1/health
 http://127.0.0.1:8000/docs
 ```
+
+## Database models
+
+The first PostgreSQL-ready SQLAlchemy models are in `backend/database/models.py`.
+
+They cover the core platform records:
+
+- users and enrollments
+- courses, modules, topics, concepts, and learning objectives
+- documents and document chunks
+- questions, attempts, assessments, and assessment attempts
+- concept mastery states
+- tutor sessions and tutor messages
+- instructor feedback
+- AI outputs and evaluation results
