@@ -1,0 +1,1 @@
+"""Schedule template package."""
